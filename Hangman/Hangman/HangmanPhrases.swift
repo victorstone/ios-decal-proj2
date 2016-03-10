@@ -10,11 +10,13 @@ import Foundation
 
 class HangmanPhrases {
     var phrases : NSArray!
+    var score: Int
     
     // Initialize HangmanPhrase with an array of all possible phrases of the Hangman game
     init() {
         let path = NSBundle.mainBundle().pathForResource("phrases", ofType: "plist")
         phrases = NSArray.init(contentsOfFile: path!)
+        score = 100
     }
     
     // Get random phrase from all available phrases
