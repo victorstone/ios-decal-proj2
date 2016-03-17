@@ -50,6 +50,17 @@ class InitialGameViewController: UIViewController, UITextFieldDelegate {
         self.guessTextField.delegate = self
     }
 
+    @IBAction func startOverButtonAction(sender: AnyObject) {
+        gameState = GameState(inputPhrase: gameState.phrase)
+        initialBlankSpaces.text = gameState.labelString
+        initialScore.text = "Score: " + String(gameState.score)
+        gameState.canContinue = true
+        imageControl.image = UIImage(named: "hangman1.gif")
+        guessTextField.text = ""
+        incorrectGuesses.text = ""
+        
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
